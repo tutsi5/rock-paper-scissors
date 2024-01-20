@@ -1,6 +1,7 @@
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
+const start = document.querySelector(".startB");
 
 const player = document.querySelector(".player");
 const computer = document.querySelector(".computer");
@@ -8,6 +9,14 @@ const score = document.querySelector(".score");
 
 let playerScore = 0;
 let computerScore = 0;
+
+start.addEventListener("click", function() {
+    rock.removeAttribute("hidden");
+    paper.removeAttribute("hidden");
+    scissors.removeAttribute("hidden");
+
+    start.setAttribute("hidden", true);
+})
 
 function updateScore(scoreRound) {
     if (scoreRound == -1) {
