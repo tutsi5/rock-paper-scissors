@@ -2,62 +2,98 @@ const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
 
+const player = document.querySelector(".player");
+const computer = document.querySelector(".computer");
 const score = document.querySelector(".score");
-const scoreContent = document.createElement("div");
-scoreContent.classList.add("scoreContent");
 
+const playAgain = document.querySelector(".playAgain");
 
 let playerScore = 0;
 let computerScore = 0;
 
 rock.addEventListener("click", function() {
-    console.log("rock");
-    let scoreRound = playRound("rock", getComputerChoice());
+    let computerChoice = getComputerChoice();
+    player.textContent = "You: Rock";
+    computer.textContent = "Computer: " + `${computerChoice}`;
+    let scoreRound = playRound("rock", computerChoice);
     if (scoreRound == -1) {
         computerScore++;
-        scoreContent.textContent = `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
-        score.appendChild(scoreContent);
+        score.textContent = `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
     } else if (scoreRound == 1) {
         playerScore++;
-        scoreContent.textContent = `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
-        score.appendChild(scoreContent);
+        score.textContent = `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
     } else {
-        scoreContent.textContent = "Tie! " + `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
-        score.appendChild(scoreContent);
+        score.textContent = "Tie! " + `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
+    }
+
+    if (playerScore == 5) {
+        score.textContent = "Winner! " + `Final result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
+        rock.remove();
+        paper.remove();
+        scissors.remove();
+    } else if (computerScore == 5) {
+        score.textContent = "Loser! " + `Final result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
+        rock.remove();
+        paper.remove();
+        scissors.remove();
     }
 })
 
 paper.addEventListener("click", function() {
-    console.log("paper");
-    let scoreRound = playRound("paper", getComputerChoice());
+    let computerChoice = getComputerChoice();
+    player.textContent = "You: Paper";
+    computer.textContent = "Computer: " + `${computerChoice}`;
+
+    let scoreRound = playRound("paper", computerChoice);
     if (scoreRound == -1) {
         computerScore++;
-        scoreContent.textContent = `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
-        score.appendChild(scoreContent);
+        score.textContent = `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
     } else if (scoreRound == 1) {
         playerScore++;
-        scoreContent.textContent = `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
-        score.appendChild(scoreContent);
+        score.textContent = `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
     } else {
-        scoreContent.textContent = "Tie! " + `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
-        score.appendChild(scoreContent);
+        score.textContent = "Tie! " + `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
+    }
+
+    if (playerScore == 5) {
+        score.textContent = "Winner! " + `Final result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
+        rock.remove();
+        paper.remove();
+        scissors.remove();
+    } else if (computerScore == 5) {
+        score.textContent = "Loser! " + `Final result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
+        rock.remove();
+        paper.remove();
+        scissors.remove();
     }
 })
 
 scissors.addEventListener("click", function() {
-    console.log("scissors");
-    let scoreRound = playRound("scissors", getComputerChoice());
+    let computerChoice = getComputerChoice();
+    player.textContent = "You: Scissors";
+    computer.textContent = "Computer: " + `${computerChoice}`;
+
+    let scoreRound = playRound("scissors", computerChoice);
     if (scoreRound == -1) {
         computerScore++;
-        scoreContent.textContent = `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
-        score.appendChild(scoreContent);
+        score.textContent = `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
     } else if (scoreRound == 1) {
         playerScore++;
-        scoreContent.textContent = `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
-        score.appendChild(scoreContent);
+        score.textContent = `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
     } else {
-        scoreContent.textContent = "Tie! " + `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
-        score.appendChild(scoreContent);
+        score.textContent = "Tie! " + `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
+    }
+
+    if (playerScore == 5) {
+        score.textContent = "Winner! " + `Final result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
+        rock.remove();
+        paper.remove();
+        scissors.remove();
+    } else if (computerScore == 5) {
+        score.textContent = "Loser! " + `Final result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
+        rock.remove();
+        paper.remove();
+        scissors.remove();
     }
 })
 
