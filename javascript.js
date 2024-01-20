@@ -9,11 +9,7 @@ const score = document.querySelector(".score");
 let playerScore = 0;
 let computerScore = 0;
 
-rock.addEventListener("click", function() {
-    let computerChoice = getComputerChoice();
-    player.textContent = "You: Rock";
-    computer.textContent = "Computer: " + `${computerChoice}`;
-    let scoreRound = playRound("rock", computerChoice);
+function updateScore(scoreRound) {
     if (scoreRound == -1) {
         computerScore++;
         score.textContent = `Defeat!\nComputer: ${computerScore}\nYou: ${playerScore}`;
@@ -23,18 +19,32 @@ rock.addEventListener("click", function() {
     } else {
         score.textContent = "Tie! " + `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
     }
+}
 
+function checkIfEnd() {
     if (playerScore == 5) {
         score.textContent = "Winner! " + `Final result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
-        rock.remove();
-        paper.remove();
-        scissors.remove();
+        hideElements();
     } else if (computerScore == 5) {
         score.textContent = "Loser! " + `Final result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
-        rock.remove();
-        paper.remove();
-        scissors.remove();
+        hideElements();
     }
+}
+
+function hideElements() {
+    rock.setAttribute("hidden", true);
+    paper.setAttribute("hidden", true);
+    scissors.setAttribute("hidden", true);
+}
+
+rock.addEventListener("click", function() {
+    let computerChoice = getComputerChoice();
+    player.textContent = "You: Rock";
+    computer.textContent = "Computer: " + `${computerChoice}`;
+
+    let scoreRound = playRound("rock", computerChoice);
+    updateScore(scoreRound);
+    checkIfEnd();
 })
 
 paper.addEventListener("click", function() {
@@ -43,27 +53,8 @@ paper.addEventListener("click", function() {
     computer.textContent = "Computer: " + `${computerChoice}`;
 
     let scoreRound = playRound("paper", computerChoice);
-    if (scoreRound == -1) {
-        computerScore++;
-        score.textContent = `Defeat!\nComputer: ${computerScore}\nYou: ${playerScore}`;
-    } else if (scoreRound == 1) {
-        playerScore++;
-        score.textContent = `Win!\nComputer: ${computerScore}\nYou: ${playerScore}`;
-    } else {
-        score.textContent = "Tie! " + `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
-    }
-
-    if (playerScore == 5) {
-        score.textContent = "Winner! " + `Final result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
-        rock.remove();
-        paper.remove();
-        scissors.remove();
-    } else if (computerScore == 5) {
-        score.textContent = "Loser! " + `Final result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
-        rock.remove();
-        paper.remove();
-        scissors.remove();
-    }
+    updateScore(scoreRound);
+    checkIfEnd();
 })
 
 scissors.addEventListener("click", function() {
@@ -72,27 +63,8 @@ scissors.addEventListener("click", function() {
     computer.textContent = "Computer: " + `${computerChoice}`;
 
     let scoreRound = playRound("scissors", computerChoice);
-    if (scoreRound == -1) {
-        computerScore++;
-        score.textContent = `Defeat!\nComputer: ${computerScore}\nYou: ${playerScore}`;
-    } else if (scoreRound == 1) {
-        playerScore++;
-        score.textContent = `Win!\nComputer: ${computerScore}\nYou: ${playerScore}`;
-    } else {
-        score.textContent = "Tie! " + `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
-    }
-
-    if (playerScore == 5) {
-        score.textContent = "Winner! " + `Final result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
-        rock.remove();
-        paper.remove();
-        scissors.remove();
-    } else if (computerScore == 5) {
-        score.textContent = "Loser! " + `Final result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
-        rock.remove();
-        paper.remove();
-        scissors.remove();
-    }
+    updateScore(scoreRound);
+    checkIfEnd();
 })
 
 function getComputerChoice() {
