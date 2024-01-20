@@ -6,8 +6,6 @@ const player = document.querySelector(".player");
 const computer = document.querySelector(".computer");
 const score = document.querySelector(".score");
 
-const playAgain = document.querySelector(".playAgain");
-
 let playerScore = 0;
 let computerScore = 0;
 
@@ -18,10 +16,10 @@ rock.addEventListener("click", function() {
     let scoreRound = playRound("rock", computerChoice);
     if (scoreRound == -1) {
         computerScore++;
-        score.textContent = `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
+        score.textContent = `Defeat!\nComputer: ${computerScore}\nYou: ${playerScore}`;
     } else if (scoreRound == 1) {
         playerScore++;
-        score.textContent = `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
+        score.textContent = `Win!\nComputer: ${computerScore}\nYou: ${playerScore}`;
     } else {
         score.textContent = "Tie! " + `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
     }
@@ -47,10 +45,10 @@ paper.addEventListener("click", function() {
     let scoreRound = playRound("paper", computerChoice);
     if (scoreRound == -1) {
         computerScore++;
-        score.textContent = `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
+        score.textContent = `Defeat!\nComputer: ${computerScore}\nYou: ${playerScore}`;
     } else if (scoreRound == 1) {
         playerScore++;
-        score.textContent = `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
+        score.textContent = `Win!\nComputer: ${computerScore}\nYou: ${playerScore}`;
     } else {
         score.textContent = "Tie! " + `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
     }
@@ -76,10 +74,10 @@ scissors.addEventListener("click", function() {
     let scoreRound = playRound("scissors", computerChoice);
     if (scoreRound == -1) {
         computerScore++;
-        score.textContent = `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
+        score.textContent = `Defeat!\nComputer: ${computerScore}\nYou: ${playerScore}`;
     } else if (scoreRound == 1) {
         playerScore++;
-        score.textContent = `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
+        score.textContent = `Win!\nComputer: ${computerScore}\nYou: ${playerScore}`;
     } else {
         score.textContent = "Tie! " + `Current result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
     }
