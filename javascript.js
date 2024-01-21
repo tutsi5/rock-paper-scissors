@@ -1,9 +1,9 @@
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
-const start = document.querySelector(".startB");
-const result = document.querySelector(".result");
-const again = document.querySelector(".againB");
+const start = document.querySelector(".startBtn");
+const roundResult = document.querySelector(".result");
+const again = document.querySelector(".againBtn");
 
 const player = document.querySelector(".player");
 const computer = document.querySelector(".computer");
@@ -22,21 +22,21 @@ start.addEventListener("click", function() {
 
 function updateScore(scoreRound) {
 
-    result.style.display = "block";
+    roundResult.style.display = "block";
     player.style.display = "block";
     computer.style.display = "block";
     score.style.display = "block";
 
     if (scoreRound == -1) {
         computerScore++;
-        result.textContent = "Defeat!"
+        roundResult.textContent = "Defeat!"
         score.textContent = `Computer: ${computerScore}\nYou: ${playerScore}`;
     } else if (scoreRound == 1) {
         playerScore++;
-        result.textContent = "Win!"
+        roundResult.textContent = "Win!"
         score.textContent = `Computer: ${computerScore}\nYou: ${playerScore}`;
     } else {
-        result.textContent = "Tie!"
+        roundResult.textContent = "Tie!"
         score.textContent = `Computer: ${computerScore}\nYou: ${playerScore}`;
     }
 }
@@ -97,7 +97,7 @@ again.addEventListener("click", function() {
     paper.style.display = "block";
     scissors.style.display = "block";
 
-    result.style.display = "none";
+    roundResult.style.display = "none";
     player.style.display = "none";
     computer.style.display = "none";
     score.style.display = "none";
