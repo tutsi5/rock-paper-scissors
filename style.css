@@ -1,12 +1,11 @@
 body {
-    background-color: rgb(59, 59, 123);
+    background-color: rgb(37, 38, 78);
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
 }
 
 .header {
-    background-color: rgb(37, 38, 78);
     text-align: center;
     padding-top: 40px;
     color: rgb(217, 217, 138);
@@ -31,9 +30,18 @@ body {
     width: 150px;
     height: 50px;
     font-size: 20px;
+    font-weight: bold;
     color: rgb(37, 38, 78);
-    border-radius: 15%;
-    border: solid 4px grey;
+    border-radius: 10%;
+    border: 0;
+    cursor: pointer;
+    background-color: rgb(173, 170, 198);
+}
+
+.startBtn:hover,
+.againBtn:hover {
+    -webkit-filter: drop-shadow(4px 4px 4px rgb(217, 217, 138));
+    filter:         drop-shadow(4px 4px 4px rgb(217, 217, 138));
 }
 
 .again {
@@ -53,17 +61,9 @@ body {
 .rock,
 .paper,
 .scissors {
-    border-radius: 20%;
-    border: solid 6px grey;
-}
-
-.rock:hover,
-.paper:hover,
-.scissors:hover,
-.startBtn:hover,
-.againBtn:hover {
-    border: solid 6px rgb(217, 217, 138);
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 img {
@@ -71,12 +71,17 @@ img {
     height: auto;
 }
 
+img:hover {
+    -webkit-filter: drop-shadow(4px 4px 4px rgb(217, 217, 138));
+    filter:         drop-shadow(4px 4px 4px rgb(217, 217, 138));
+}
+
 .texts {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 50px;
-    font-size: 25px;
+    font-size: 20px;
     color: rgb(170, 164, 207);
     text-shadow: 1px 1px grey;
 }

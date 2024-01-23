@@ -30,24 +30,24 @@ function updateScore(scoreRound) {
     if (scoreRound == -1) {
         computerScore++;
         roundResult.textContent = "Defeat!"
-        score.textContent = `Computer: ${computerScore}\nYou: ${playerScore}`;
+        score.textContent = `You: ${playerScore} Computer: ${computerScore}`;
     } else if (scoreRound == 1) {
         playerScore++;
         roundResult.textContent = "Win!"
-        score.textContent = `Computer: ${computerScore}\nYou: ${playerScore}`;
+        score.textContent = `You: ${playerScore} Computer: ${computerScore}`;
     } else {
         roundResult.textContent = "Tie!"
-        score.textContent = `Computer: ${computerScore}\nYou: ${playerScore}`;
+        score.textContent = `You: ${playerScore} Computer: ${computerScore}`;
     }
 }
 
 function checkIfEnd() {
     if (playerScore == 5) {
-        score.textContent = "Winner! " + `Final result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
+        score.textContent = "Winner! " + `Final result: ${playerScore} : ${computerScore}`;
         hideElements();
         again.style.display = "block";
     } else if (computerScore == 5) {
-        score.textContent = "Loser! " + `Final result:\nComputer: ${computerScore}\nYou: ${playerScore}`;
+        score.textContent = "Loser! " + `Final result: ${playerScore} : ${computerScore}`;
         hideElements();
         again.style.display = "block";
     }
